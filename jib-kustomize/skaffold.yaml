@@ -4,7 +4,7 @@ metadata:
   name: hello-world
 build:
   artifacts:
-  - image: europe-west2-docker.pkg.dev/ejmadkins-refinitiv/sessions/hello-world
+  - image: YOUR-REGISTRY
     context: .
     jib: {}
 

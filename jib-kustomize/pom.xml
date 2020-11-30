@@ -43,7 +43,7 @@
 				<version>2.6.0</version>
 				<configuration>
 					<to>
-						<image>europe-west2-docker.pkg.dev/ejmadkins-refinitiv/sessions/hello-world</image>
+						<image>YOUR-REGISTRY</image>
 					</to>
 				</configuration>
 			</plugin>
