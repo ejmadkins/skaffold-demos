@@ -1,2 +1,2 @@
 # skaffold-demos
-A simple set of Skaffold demos
+A simple set of Skaffold demos.
