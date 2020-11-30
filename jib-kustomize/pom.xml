@@ -37,6 +37,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>2.6.0</version>
+				<configuration>
+					<to>
+						<image>europe-west2-docker.pkg.dev/ejmadkins-refinitiv/sessions/hello-world</image>
+					</to>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
