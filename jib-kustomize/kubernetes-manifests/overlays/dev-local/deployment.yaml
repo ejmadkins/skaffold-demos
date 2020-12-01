@@ -3,4 +3,4 @@ kind: Deployment
 metadata:
   name: hello-world
   labels:
-    env: dev
+    env: dev-local

@@ -2,9 +2,10 @@ apiVersion: skaffold/v2beta10
 kind: Config
 metadata:
   name: hello-world
+
 build:
   artifacts:
-  - image: YOUR-REGISTRY
+  - image: hello-world
     context: .
     jib: {}
 
@@ -23,6 +24,22 @@ profiles:
     deploy:
       kustomize:
         paths:
-        - kubernetes-manifests/overlays/dev
+        - kubernetes-manifests/overlays/dev-local
     activation:
     - kubeContext: docker-desktop
+  - name: remote
+    build:
+      artifacts:
+      - image: <YOUR-REGISTRY>
+        context: .
+        jib: {}
+      tagPolicy:
+        sha256: {}
+      googleCloudBuild:
+        projectId: <YOUR-GCP-PROJECT-ID>
+    deploy:
+      kustomize:
+        paths:
+        - kubernetes-manifests/overlays/dev-remote
+    activation:
+    - kubeContext: <YOUR-CONTEXT>
