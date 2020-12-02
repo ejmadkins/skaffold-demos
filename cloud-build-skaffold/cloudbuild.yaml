@@ -5,8 +5,5 @@ steps:
   args:
   - '-c'
   - >
-    skaffold run -f=skaffold.yaml;
-# Add more power, and more time, for heavy Skaffold build
-timeout: '3600s'
-options:
-  machineType: 'N1_HIGHCPU_8'
+    skaffold render -f=skaffold.yaml --default-repo=gcr.io/ejmadkins-refinitiv;
+  dir: 'cloud-build-skaffold'

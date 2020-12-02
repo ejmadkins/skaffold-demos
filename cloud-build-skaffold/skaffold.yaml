@@ -5,9 +5,21 @@ metadata:
 
 build:
   artifacts:
-  - image: europe-west2-docker.pkg.dev/ejmadkins-refinitiv/hello/hello
+  - image: europe-west2-docker.pkg.dev/ejmadkins-refinitiv/hello-world/hello-world
     context: .
     jib: {}
   tagPolicy:
     sha256: {}
   googleCloudBuild: {}
+
+profiles:
+- name: staging
+  deploy:
+    kustomize:
+      paths:
+      - kubernetes-manifests/overlays/local
+- name: prod
+  deploy:
+    kustomize:
+      paths:
+      - kubernetes-manifests/overlays/prod

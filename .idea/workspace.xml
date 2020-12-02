@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78ba8b79-a087-456d-8238-cf7da0901f91" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-build-skaffold/kubernetes-manifests/base/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-build-skaffold/kubernetes-manifests/base/kustomization.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-build-skaffold/kubernetes-manifests/overlays/prod/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-build-skaffold/kubernetes-manifests/overlays/prod/kustomization.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-build-skaffold/kubernetes-manifests/overlays/staging/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cloud-build-skaffold/kubernetes-manifests/overlays/staging/kustomization.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-build-skaffold/cloudbuild.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-build-skaffold/cloudbuild.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-build-skaffold/skaffold.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-build-skaffold/skaffold.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +34,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cloud-build-skaffold" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cloud-build-skaffold" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -40,5 +53,11 @@
       <updated>1606912742685</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="661" y="269" key="#Notifications" timestamp="1606928352348">
+      <screen x="0" y="23" width="1440" height="804" />
+    </state>
+    <state x="661" y="269" key="#Notifications/0.23.1440.804@0.23.1440.804" timestamp="1606928352348" />
   </component>
 </project>
