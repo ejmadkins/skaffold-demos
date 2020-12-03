@@ -1,9 +1,55 @@
 steps:
+
 - id: 'Deploy application to cluster'
   name: 'gcr.io/k8s-skaffold/skaffold:v1.17.1'
   entrypoint: 'bash'
   args:
   - '-c'
-  - >
-    skaffold render -f=skaffold.yaml --default-repo=gcr.io/ejmadkins-refinitiv;
+  - |
+     skaffold render -f=skaffold.yaml -p=prod --loud=true --output=k8s-manifests.yaml
   dir: 'cloud-build-skaffold'
+
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: 'bash'
+  args: [ '-c', 'gcloud secrets versions access latest --secret=secret-name > /root/.ssh/id_github' ]
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+# Set up git with key and domain
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    chmod 600 /root/.ssh/id_github
+    cat <<EOF >/root/.ssh/config
+    Hostname github.com
+    IdentityFile /root/.ssh/id_github
+    EOF
+    ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+- id: 'Add manifests and check-in'
+  name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - >
+    git checkout -b main;
+    git config user.email "ejmadkins@google.com";
+    git add cloud-build-skaffold/k8s-manifests.yaml;
+    git commit -m "update kubernetes manifests";
+ 
+- id: 'Push to Git'
+  name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - >
+    git push git@github.com:edadkins-google/skaffold-demos main;
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
