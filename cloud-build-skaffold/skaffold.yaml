@@ -5,7 +5,7 @@ metadata:
 
 build:
   artifacts:
-  - image: europe-west2-docker.pkg.dev/ejmadkins-refinitiv/hello-world/hello-world
+  - image: europe-west2-docker.pkg.dev/hello-world/hello-world
     context: .
     jib: {}
   tagPolicy:
